@@ -14,7 +14,7 @@ public class Amazon_steps {
 
     @Then("verify it contains the word Amazon")
     public void verify_it_contains_the_word_Amazon() {
-       Assert.assertTrue(Driver.getDriver().getTitle().contains("Amazon"));
+       Assert.assertTrue(Driver.getDriver().getTitle().contains("AmazonPage"));
        Driver.closeDriver();
     }
 

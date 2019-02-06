@@ -1,6 +1,6 @@
 Feature: This is my first Feature
   # Whatever the comment here
-  @Google
+  @canan
   Scenario: Google search scenario
     When user goes to google application
     Then user should searches for apple

@@ -1,11 +1,13 @@
 
-@Amazon
+@amazon
 Feature: Amazon Title
 
-  Scenario: Amazon Title verification
+  Background: User is on the amazon homepage
     When user goes to amazon website
+
+  Scenario: Amazon Title verification
+
     Then verify it contains the word Amazon
 
     Scenario: Amazon url verification
-      When user goes to amazon website
       Then validate the url
