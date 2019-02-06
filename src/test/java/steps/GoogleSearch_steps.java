@@ -36,16 +36,16 @@ public class GoogleSearch_steps {
     }
 
 
-    @When("user enters \"([^\"]*)\"")
+    @When("user enters {string}")
     public void user_enters(String keyWord) {
        googlePage.searchField.sendKeys(keyWord + Keys.ENTER);
     }
 
-    @Then("User should see \"([^\"]*)\" in the title")
+    @Then("User should see {string} in the title")
     public void user_should_see_in_the_title(String title) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(title));
-        Driver.getDriver().close();
-
     }
+
+
 
 }

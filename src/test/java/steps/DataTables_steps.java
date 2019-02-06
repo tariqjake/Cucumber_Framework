@@ -90,62 +90,65 @@ dataTablePage.searchBox.sendKeys("John Kagawa" + Keys.ENTER);
         }
         Assert.assertTrue("The name is not found",false);
     }
-    //@Then("User should enter firstname {string}) does not work in my computer
-    // So i have used regex to show string parameter
-    @Then("User should enter firstname \"([^\"]*)\"")
+
+    //@Then("User should enter firstname {string})
+    @Then("User should enter firstname {string}")
     public void user_should_enter_firstname(String firstName) {
     dataTablePage.firstNameInput.sendKeys(firstName);
     }
 
-    @Then("User should enter lastname \"([^\"]*)\"")
+    @Then("User should enter lastname {string}")
     public void user_should_enter_lastname(String lastName) {
         dataTablePage.lastNameInput.sendKeys(lastName);
     }
 
-    @Then("User should enter position \"([^\"]*)\"")
+    @Then("User should enter position {string}")
     public void user_should_enter_position(String position) {
        dataTablePage.positionInput.sendKeys(position);
         }
 
-    @Then("User should enter office \"([^\"]*)\"")
+    @Then("User should enter office {string}")
     public void user_should_enter_office(String office) {
         dataTablePage.officeInput.sendKeys(office);
     }
 
-    @Then("User should enter extension \"([^\"]*)\"")
+    @Then("User should enter extension {string}")
     public void user_should_enter_extension(String extension) {
        dataTablePage.extensionInput.sendKeys(extension);
     }
 
-    @Then("User should enter start date \"([^\"]*)\"")
+    @Then("User should enter start date {string}")
     public void user_should_enter_start_date(String startDate) {
        dataTablePage.startDateInput.sendKeys(startDate);
     }
 
-    @Then("User should enter salary \"([^\"]*)\"")
+    @Then("User should enter salary {string}")
     public void user_should_enter_salary(String salary) {
        dataTablePage.salaryInput.sendKeys(salary);
     }
 
 
-    @Then("User searches first name \"([^\"]*)\" in search Box")
+    @Then("User searches first name {string} in search Box")
     public void user_searches_first_name_in_search_Box(String name) {
         dataTablePage.searchBox.sendKeys(name + Keys.ENTER); }
 
-    @Then("User should see first name \"([^\"]*)\" is inserted in the table")
+    @Then("User should see first name {string} is inserted in the table")
     public void user_should_see_first_name_is_inserted_in_the_table(String name) {
         wait.until(ExpectedConditions.visibilityOf(dataTablePage.nameSearchedList.get(0)));
         for (WebElement nameElement: dataTablePage.nameSearchedList) {
+            wait.until(ExpectedConditions.visibilityOf(dataTablePage.nameSearchedList.get(0)));
             if(nameElement.getText().contains(name)){
                 Assert.assertTrue(true);
-                Driver.getDriver().close();
                 return;
             }
         }
-        Assert.assertTrue("The name is not found",false);
+        Assert.assertTrue("The name \""+ name+"\" is not found"  ,false);
     }
 
-
+    @Then("User should enter salary {int}")
+    public void user_should_enter_salary(Integer salary) {
+       dataTablePage.salaryInput.sendKeys(""+salary);
+    }
 
 
 
