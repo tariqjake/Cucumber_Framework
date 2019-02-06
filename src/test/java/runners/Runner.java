@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = "html:target/cucumber",
         features = "src/test/resources/features",
         glue = "steps",
-        tags = "@youtube",
+        tags = "@dataTableParams",
         dryRun = false
 )
 public class Runner {

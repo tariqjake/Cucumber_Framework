@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import pages.GooglePage;
 import utilities.Driver;
 
@@ -32,6 +33,19 @@ public class GoogleSearch_steps {
     public void user_should_see_results_related_to_flowers() {
        Assert.assertTrue("Keyword flowers was not located in title",Driver.getDriver().getTitle().contains("flowers"));
        Driver.closeDriver();
+    }
+
+
+    @When("user enters \"([^\"]*)\"")
+    public void user_enters(String keyWord) {
+       googlePage.searchField.sendKeys(keyWord + Keys.ENTER);
+    }
+
+    @Then("User should see \"([^\"]*)\" in the title")
+    public void user_should_see_in_the_title(String title) {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(title));
+        Driver.getDriver().close();
+
     }
 
 }
