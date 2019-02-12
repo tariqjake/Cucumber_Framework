@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "steps",
-        tags = "@wip",
+        tags = "@wip or @leader",
         dryRun = false
 )
 public class CukesRunner {
